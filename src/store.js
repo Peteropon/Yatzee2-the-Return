@@ -1,6 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import die1 from './assets/Dice-1.png';
+import die2 from './assets/Dice-2.png';
+import die3 from './assets/Dice-3.png';
+import die4 from './assets/Dice-4.png';
+import die5 from './assets/Dice-5.png';
+import die6 from './assets/Dice-6.png';
 
 Vue.use(Vuex);
 
@@ -13,23 +18,23 @@ export default new Vuex.Store({
       },
       {
         value: 2,
-        img: "require('./assets/Dice-2.png')",
+        img: die2,
       },
       {
         value: 3,
-        img: './ass',
+        img: die3,
       },
       {
         value: 4,
-        img: './ass',
+        img: die4,
       },
       {
         value: 5,
-        img: './ass',
+        img: die5,
       },
       {
         value: 6,
-        img: './ass',
+        img: die6,
       },
     ],
   },

@@ -1,7 +1,6 @@
 <template>
-<div>
-    <p>:)</p>
-    <img :src="image" alt="">
+<div class="img">
+    <img :src="image" alt="image of a die">
 </div>
 </template>
 
@@ -10,12 +9,12 @@ export default {
     name: 'Die',
     data() {
         return {
-            image: require('@/assets/Dice-2.png')
+            image: this.$store.state.dice[2].img
         }
     }
 };
 </script>
 
-<style>
+<style scoped>
 
 </style>

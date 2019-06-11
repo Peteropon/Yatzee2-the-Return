@@ -1,5 +1,10 @@
 <template>
-    <die></die>
+<div class="dc">
+    <div class="dc-1" v-for="die, index in dice"
+    :key="index" :die="dice" :index="index">
+        <die></die>
+    </div>
+</div>
 </template>
 
 <script>
@@ -8,10 +13,19 @@ export default {
     name: 'Dice',
     components: {
         Die
+    },
+    computed: {
+        dice() {
+            return this.$store.state.dice
+        }
     }
 }
 </script>
 
 <style <style lang="scss" scoped>
+    .dc {
+        display: grid;
+    }
+
 
 </style>
