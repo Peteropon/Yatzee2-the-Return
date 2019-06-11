@@ -1,7 +1,7 @@
 <template>
 <div class="dc">
     <div class="dc-1" v-for="die, index in dice"
-    :key="index" :die="dice" :index="index">
+    :key="index" :die="die" >
         <die></die>
     </div>
 </div>
@@ -24,7 +24,7 @@ export default {
 
 <style <style lang="scss" scoped>
     .dc {
-        display: grid;
+        display: block;
     }
 
 

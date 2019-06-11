@@ -13,30 +13,29 @@ export default new Vuex.Store({
   state: {
     dice: [
       {
-        value: 1,
-        img: die1,
+        value: 0,
+        img: '',
       },
       {
-        value: 2,
-        img: die2,
+        value: 0,
+        img: '',
       },
       {
-        value: 3,
-        img: die3,
+        value: 0,
+        img: '',
       },
       {
-        value: 4,
-        img: die4,
+        value: 0,
+        img: '',
       },
       {
-        value: 5,
-        img: die5,
-      },
-      {
-        value: 6,
-        img: die6,
+        value: 0,
+        img: '',
       },
     ],
+  },
+  getters: {
+    getDie: state => state.dice,
   },
   mutations: {
 
