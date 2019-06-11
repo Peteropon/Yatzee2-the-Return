@@ -1,10 +1,14 @@
 <template>
-
+    <dice></dice>
 </template>
 
 <script>
+import Dice from "./Dice"
 export default {
-    name: 'Game'
+    name: 'Game',
+    components: {
+        Dice
+    }
 }
 </script>
 

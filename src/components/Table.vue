@@ -1,11 +1,11 @@
 <template>
-    <p>:) </p>
+
 </template>
 
 <script>
 export default {
-    name: 'Die'
-};
+
+}
 </script>
 
 <style>
