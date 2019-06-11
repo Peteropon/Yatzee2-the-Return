@@ -1,10 +1,18 @@
 <template>
-    <p>:) </p>
+<div>
+    <p>:)</p>
+    <img :src="image" alt="">
+</div>
 </template>
 
 <script>
 export default {
-    name: 'Die'
+    name: 'Die',
+    data() {
+        return {
+            image: require('@/assets/Dice-2.png')
+        }
+    }
 };
 </script>
 
