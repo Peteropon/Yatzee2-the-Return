@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Welcome to Your Vue.js App</h1>
+    <h1>Welcome to a good Yatzy game!</h1>
     <game></game>
   </div>
 </template>

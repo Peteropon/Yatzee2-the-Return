@@ -1,7 +1,7 @@
 <template>
 <div class="dc">
     <div class="dc-1"  >
-        <die v-for="die, index in dice"
+        <die class="dv-img" v-for="die, index in dice"
     :key="index" :die="die"></die>
     </div>
 </div>
@@ -24,8 +24,6 @@ export default {
 
 <style  scoped>
     .dc-1 {
-        display: inline-block;
+        display: flex;
     }
-
-
 </style>

@@ -1,13 +1,18 @@
 <template>
-    <dice></dice>
+    <div>
+        <dice></dice>
+        <roll></roll>
+    </div>
 </template>
 
 <script>
-import Dice from "./Dice"
+import Dice from './Dice'
+import Roll from './Roll'
 export default {
     name: 'Game',
     components: {
-        Dice
+        Dice,
+        Roll
     }
 }
 </script>

@@ -10,8 +10,6 @@ import letterA from './assets/letterA.png';
 import letterY from './assets/letterY.png';
 import letterT from './assets/letterT.png';
 import letterZ from './assets/letterZ.png';
-import letterE from './assets/letterE.png';
-
 
 Vue.use(Vuex);
 
@@ -44,9 +42,17 @@ export default new Vuex.Store({
     getDie: state => state.dice,
   },
   mutations: {
-
+    rollDice(state) {
+      state.dice.forEach((die) => {
+        const number = Math.floor(Math.random() * 6) + 1;
+        die.value = number;
+        die.img = require(`@/assets/Dice-${  number  }.png`);
+      });
+    },
   },
   actions: {
-
+    rollDice({ commit }) {
+      commit('rollDice');
+    },
   },
 });
