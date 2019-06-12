@@ -1,8 +1,8 @@
 <template>
 <div class="dc">
-    <div class="dc-1" v-for="die, index in dice"
-    :key="index" :die="die" >
-        <die></die>
+    <div class="dc-1"  >
+        <die v-for="die, index in dice"
+    :key="index" :die="die"></die>
     </div>
 </div>
 </template>
@@ -22,9 +22,9 @@ export default {
 }
 </script>
 
-<style <style lang="scss" scoped>
-    .dc {
-        display: block;
+<style  scoped>
+    .dc-1 {
+        display: inline-block;
     }
 
 

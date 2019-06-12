@@ -6,6 +6,12 @@ import die3 from './assets/Dice-3.png';
 import die4 from './assets/Dice-4.png';
 import die5 from './assets/Dice-5.png';
 import die6 from './assets/Dice-6.png';
+import letterA from './assets/letterA.png';
+import letterY from './assets/letterY.png';
+import letterT from './assets/letterT.png';
+import letterZ from './assets/letterZ.png';
+import letterE from './assets/letterE.png';
+
 
 Vue.use(Vuex);
 
@@ -14,23 +20,23 @@ export default new Vuex.Store({
     dice: [
       {
         value: 0,
-        img: '',
+        img: letterY,
       },
       {
         value: 0,
-        img: '',
+        img: letterA,
       },
       {
         value: 0,
-        img: '',
+        img: letterT,
       },
       {
         value: 0,
-        img: '',
+        img: letterZ,
       },
       {
         value: 0,
-        img: '',
+        img: letterY,
       },
     ],
   },
