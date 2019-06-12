@@ -1,5 +1,5 @@
 <template>
-<div class="img">
+<div class="img" @click="$emit('dieClicked')">
     <img :src="die.img" alt="image of a die">
 </div>
 </template>
@@ -8,6 +8,11 @@
 export default {
     name: 'Die',
     props: ['die'],
+    methods: {
+        hi($event){
+            console.log('hi from ' + $event.target.value)
+        }
+    },
     // data() {
     //     return {
     //         image
@@ -27,5 +32,9 @@ export default {
 <style scoped>
     img{
         max-width: 10vw;
+    }
+
+    .img{
+        margin: 1%;
     }
 </style>

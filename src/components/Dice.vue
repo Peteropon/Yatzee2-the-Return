@@ -1,10 +1,9 @@
 <template>
-<div class="dc">
-    <div class="dc-1"  >
+    <div class="dc-1" >
         <die class="dv-img" v-for="die, index in dice"
-    :key="index" :die="die"></die>
+    :key="index" :die="die" @dieClicked='selectDie(die)'></die>
     </div>
-</div>
+
 </template>
 
 <script>
@@ -18,6 +17,11 @@ export default {
         dice() {
             return this.$store.state.dice
         }
+    },
+    methods: {
+        selectDie(die) {
+            console.log('hi ' + die.value)
+        }
     }
 }
 </script>
@@ -25,5 +29,6 @@ export default {
 <style  scoped>
     .dc-1 {
         display: flex;
+        margin: 1em;
     }
 </style>
