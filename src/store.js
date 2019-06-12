@@ -19,22 +19,27 @@ export default new Vuex.Store({
       {
         value: 0,
         img: letterY,
+        selected: false,
       },
       {
         value: 0,
         img: letterA,
+        selected: false,
       },
       {
         value: 0,
         img: letterT,
+        selected: false,
       },
       {
         value: 0,
         img: letterZ,
+        selected: false,
       },
       {
         value: 0,
         img: letterY,
+        selected: false,
       },
     ],
   },
@@ -46,7 +51,7 @@ export default new Vuex.Store({
       state.dice.forEach((die) => {
         const number = Math.floor(Math.random() * 6) + 1;
         die.value = number;
-        die.img = require(`@/assets/Dice-${  number  }.png`);
+        die.img = require(`@/assets/Dice-${ number }.png`);
       });
     },
   },

@@ -12,9 +12,9 @@ export default {
     name: 'Game',
     components: {
         Dice,
-        Roll
+        Roll,
     }
-}
+};
 </script>
 
 <style>

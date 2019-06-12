@@ -8,11 +8,7 @@
 export default {
     name: 'Die',
     props: ['die'],
-    methods: {
-        hi($event){
-            console.log('hi from ' + $event.target.value)
-        }
-    },
+
     // data() {
     //     return {
     //         image
