@@ -19,8 +19,8 @@ describe('Roll', () => {
   });
 
   it('contains a button', () => {
-      const wrapper = shallowMount(Roll);
-      expect(wrapper.contains('button')).toBe(true);
+    const wrapper = shallowMount(Roll);
+    expect(wrapper.contains('button')).toBe(true);
   });
 
   it('calls the rollDice action correctly', () => {

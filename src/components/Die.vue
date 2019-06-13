@@ -1,6 +1,6 @@
 <template>
-<div class="img" @click="$emit('dieClicked')">
-    <img :src="die.img" alt="image of a die">
+<div class="div-img" @click="$emit('dieClicked')">
+    <img class="die-img" :src="die.img" alt="image of a die">
 </div>
 </template>
 
@@ -26,11 +26,11 @@ export default {
 </script>
 
 <style scoped>
-    img{
+    .die-img{
         max-width: 10vw;
     }
 
-    .img{
+    .div-img{
         margin: 1%;
     }
 </style>
