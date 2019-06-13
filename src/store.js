@@ -56,8 +56,7 @@ export default new Vuex.Store({
   },
   mutations: {
     rollDice(state) {
-      state.ones = 0;
-      state.twos = 0;
+      this.commit('clearNumberCounters');
       state.dice.forEach((die) => {
         if (!die.selected) {
           const number = Math.floor(Math.random() * 6) + 1;
@@ -100,6 +99,14 @@ export default new Vuex.Store({
           case 6: state.sixes++;
         }
       });
+    },
+    clearNumberCounters(state) {
+      state.ones = 0;
+      state.twos = 0;
+      state.threes = 0;
+      state.fours = 0;
+      state.fives = 0;
+      state.sixes = 0;
     },
   },
   actions: {
