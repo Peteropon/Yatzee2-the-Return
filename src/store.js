@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
 /* eslint-disable default-case */
 import Vue from 'vue';
 import Vuex from 'vuex';
