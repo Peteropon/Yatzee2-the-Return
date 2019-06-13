@@ -1,7 +1,8 @@
 <template>
     <div class="dc-1" >
-        <die class="dv-img" v-for="die, index in dice"
-    :key="index" :die="die" @dieClicked='selectDie(die)'></die>
+        <die class="dv-img" v-for="(die, index) in dice"
+    :key="index" :die="die" :index='index'
+    @dieClicked='selectDie(die, index)'></die>
     </div>
 
 </template>
@@ -19,8 +20,10 @@ export default {
         }
     },
     methods: {
-        selectDie(die) {
-            console.log('hi ' + die.value)
+        selectDie(die, index) {
+            console.log('hi ' + die.value + index)
+            this.$store.dispatch('toggleSelectedDie', index)
+
         }
     }
 }

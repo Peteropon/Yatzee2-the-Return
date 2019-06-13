@@ -49,15 +49,24 @@ export default new Vuex.Store({
   mutations: {
     rollDice(state) {
       state.dice.forEach((die) => {
-        const number = Math.floor(Math.random() * 6) + 1;
-        die.value = number;
-        die.img = require(`@/assets/Dice-${ number }.png`);
+        if (!die.selected) {
+          const number = Math.floor(Math.random() * 6) + 1;
+          die.value = number;
+          die.img = require(`@/assets/Dice-${ number }.png`);
+        }
       });
     },
+    toggleSelectedDie(state, payload) {
+      console.log(payload);
+      state.dice[payload].selected = true;
+    }
   },
   actions: {
     rollDice({ commit }) {
       commit('rollDice');
+    },
+    toggleSelectedDie({ commit }, index) {
+        commit('toggleSelectedDie', index);
     },
   },
 });

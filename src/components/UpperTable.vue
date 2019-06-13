@@ -1,15 +1,15 @@
 <template>
     <div>
-        <upper-table></upper-table>
+        <ones></ones>
     </div>
 </template>
 
 <script>
-import UpperTable from './UpperTable'
+import Ones from './Ones'
 export default {
-    name: 'Table',
+    name: 'UpperTable',
     components: {
-        UpperTable,
+        Ones,
     },
 }
 </script>

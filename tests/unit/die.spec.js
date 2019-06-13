@@ -1,4 +1,4 @@
-import {shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Die from '@/components/Die.vue';
 
 describe('Die', () => {
@@ -8,8 +8,9 @@ describe('Die', () => {
     },
   });
 
-  it('emits an event when an image is pressed', () => {
+  it('emits an event when an image is clicked', () => {
     wrapper.vm.$emit('dieClicked');
+    wrapper.find('div').trigger('click');
     expect(wrapper.emitted('dieClicked')).toBeTruthy();
   });
 
