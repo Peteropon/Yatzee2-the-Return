@@ -4,6 +4,8 @@
         <twos></twos>
         <threes></threes>
         <fours></fours>
+        <fives></fives>
+        <sixes></sixes>
     </div>
 </template>
 
@@ -12,6 +14,8 @@ import Ones from './Ones'
 import Twos from './Twos'
 import Threes from './Threes'
 import Fours from './Fours'
+import Fives from './Fives'
+import Sixes from './Sixes'
 export default {
     name: 'UpperTable',
     components: {
@@ -19,6 +23,8 @@ export default {
         Twos,
         Threes,
         Fours,
+        Fives,
+        Sixes,
     },
 }
 </script>
