@@ -57,48 +57,47 @@ export default new Vuex.Store({
   mutations: {
     rollDice(state) {
       state.ones = 0;
+      state.twos = 0;
       state.dice.forEach((die) => {
         if (!die.selected) {
           const number = Math.floor(Math.random() * 6) + 1;
           die.value = number;
           die.img = require(`@/assets/Dice-${number}.png`);
-          switch (number) {
-            case 1: state.ones++;
-              break;
-            case 2: state.twos++;
-              break;
-            case 3: state.threes++;
-              break;
-            case 4: state.fours++;
-              break;
-            case 5: state.fives++;
-              break;
-            case 6: state.sixes++;
-          }
+        //   switch (number) {
+        //     case 1: state.ones++;
+        //       break;
+        //     case 2: state.twos++;
+        //       break;
+        //     case 3: state.threes++;
+        //       break;
+        //     case 4: state.fours++;
+        //       break;
+        //     case 5: state.fives++;
+        //       break;
+        //     case 6: state.sixes++;
+        //   }
         }
       });
+      this.commit('countNumbers');
     },
     toggleSelectedDie(state, payload) {
       if (state.dice[payload].selected) state.dice[payload].selected = false;
       else state.dice[payload].selected = true;
     },
-    countNumbers(state, value) {
+    countNumbers(state) {
       state.dice.forEach((die) => {
-        if (die.value === value) {
-          state.tempSum += value;
-          switch (value) {
-            case 1: state.ones++;
-              break;
-            case 2: state.twos++;
-              break;
-            case 3: state.threes++;
-              break;
-            case 4: state.fours++;
-              break;
-            case 5: state.fives++;
-              break;
-            case 6: state.sixes++;
-          }
+        switch (die.value) {
+          case 1: state.ones++;
+            break;
+          case 2: state.twos++;
+            break;
+          case 3: state.threes++;
+            break;
+          case 4: state.fours++;
+            break;
+          case 5: state.fives++;
+            break;
+          case 6: state.sixes++;
         }
       });
     },
