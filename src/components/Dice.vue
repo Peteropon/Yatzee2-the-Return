@@ -2,7 +2,8 @@
     <div class="dc-1" >
         <die class="dv-img" v-for="(die, index) in dice"
     :key="index" :die="die" :index='index'
-    @dieClicked='selectDie(die, index)'></die>
+    @dieClicked='selectDie(die, index)'
+        :class="[die.selected ? 'selected' : 'unselected']"></die>
     </div>
 
 </template>
@@ -21,7 +22,6 @@ export default {
     },
     methods: {
         selectDie(die, index) {
-            console.log('hi ' + die.value + index)
             this.$store.dispatch('toggleSelectedDie', index)
 
         }
@@ -34,4 +34,10 @@ export default {
         display: flex;
         margin: 1em;
     }
+.unselected {
+	filter: grayscale(0%);
+}
+.selected {
+	filter: grayscale(100%);
+}
 </style>

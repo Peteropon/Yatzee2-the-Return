@@ -28,9 +28,13 @@ export default {
 <style scoped>
     .die-img{
         max-width: 10vw;
+    	transition: all .2s ease-in-out;
     }
 
     .div-img{
         margin: 1%;
+    }
+    .die-img:hover {
+	filter: hue-rotate(180deg);
     }
 </style>
