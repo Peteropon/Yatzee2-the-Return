@@ -3,12 +3,6 @@
 /* eslint-disable default-case */
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import die1 from './assets/Dice-1.png';
-// import die2 from './assets/Dice-2.png';
-// import die3 from './assets/Dice-3.png';
-// import die4 from './assets/Dice-4.png';
-// import die5 from './assets/Dice-5.png';
-// import die6 from './assets/Dice-6.png';
 import letterA from './assets/letterA.png';
 import letterY from './assets/letterY.png';
 import letterT from './assets/letterT.png';
@@ -46,9 +40,12 @@ export default new Vuex.Store({
       },
     ],
     tempSum: 0, // the temporary sum of all dice values
+    upperSum: 0,
+    totalSum: 0,
     ones: 0,
     twos: 0,
     threes: 0,
+    threesSum: 0,
     fours: 0,
     fives: 0,
     sixes: 0,
@@ -64,19 +61,6 @@ export default new Vuex.Store({
           const number = Math.floor(Math.random() * 6) + 1;
           die.value = number;
           die.img = require(`@/assets/Dice-${number}.png`);
-        //   switch (number) {
-        //     case 1: state.ones++;
-        //       break;
-        //     case 2: state.twos++;
-        //       break;
-        //     case 3: state.threes++;
-        //       break;
-        //     case 4: state.fours++;
-        //       break;
-        //     case 5: state.fives++;
-        //       break;
-        //     case 6: state.sixes++;
-        //   }
         }
       });
       this.commit('countNumbers');
@@ -110,6 +94,13 @@ export default new Vuex.Store({
       state.fives = 0;
       state.sixes = 0;
     },
+    registerPoints(state) {
+      state.dice.forEach((die) => {
+        if (die.selected) {
+          state.totalSum += die.value;
+        }
+      });
+    },
   },
   actions: {
     rollDice({ commit }) {
@@ -120,6 +111,9 @@ export default new Vuex.Store({
     },
     countNumbers({ commit }, value) {
       commit('countNumbers', value);
+    },
+    registerPoints({ commit }) {
+      commit('registerPoints');
     },
   },
 });
