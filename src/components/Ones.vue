@@ -6,27 +6,27 @@
 
 <script>
 export default {
-    name: 'Ones',
-    data() {
-        return {
-            isSelected: false,
-            finalSum: 0
-        }
+  name: 'Ones',
+  data() {
+    return {
+      isSelected: false,
+      finalSum: 0,
+    };
+  },
+  computed: {
+    getOnes() {
+      return this.$store.state.ones;
     },
-    computed: {
-        getOnes() {
-            return this.$store.state.ones
-        }
+  },
+  methods: {
+    registerPoints() {
+      this.isSelected = true;
+      this.$store.dispatch('registerPoints');
+      this.finalSum = this.$store.state.ones;
     },
-    methods: {
-        registerPoints() {
-            this.isSelected = true
-            this.$store.dispatch('registerPoints')
-            this.finalSum = this.$store.state.ones
-        }
-    }
+  },
 
-}
+};
 </script>
 
 <style scoped>

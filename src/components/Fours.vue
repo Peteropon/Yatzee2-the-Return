@@ -7,27 +7,27 @@
 
 <script>
 export default {
-    name: 'Fours',
-    data() {
-        return {
-            isSelected: false,
-            finalSum: 0
-        }
+  name: 'Fours',
+  data() {
+    return {
+      isSelected: false,
+      finalSum: 0,
+    };
+  },
+  computed: {
+    getFours() {
+      return this.$store.state.fours * 4;
     },
-    computed: {
-        getFours() {
-            return this.$store.state.fours * 4
-        },
+  },
+  methods: {
+    registerPoints() {
+      this.isSelected = true;
+      this.$store.dispatch('registerPoints');
+      this.finalSum = this.$store.state.fours * 4;
     },
-    methods: {
-        registerPoints() {
-            this.isSelected = true
-            this.$store.dispatch('registerPoints')
-            this.finalSum = this.$store.state.fours * 4
-        }
-    }
+  },
 
-}
+};
 </script>
 
 <style scoped>

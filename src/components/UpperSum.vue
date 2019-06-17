@@ -6,13 +6,13 @@
 
 <script>
 export default {
-    name: 'UpperSum',
-    computed: {
-        upperSum() {
-            return this.$store.getters.getUpperSum
-        }
-    }
-}
+  name: 'UpperSum',
+  computed: {
+    upperSum() {
+      return this.$store.getters.getUpperSum;
+    },
+  },
+};
 </script>
 
 <style scoped>

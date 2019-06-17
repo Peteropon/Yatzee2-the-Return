@@ -5,13 +5,14 @@
 </template>
 
 <script>
-import UpperScoreboard from './UpperScoreboard'
+import UpperScoreboard from './UpperScoreboard';
+
 export default {
-    name: 'Table',
-    components: {
-        UpperScoreboard,
-    },
-}
+  name: 'Table',
+  components: {
+    UpperScoreboard,
+  },
+};
 </script>
 
 <style>

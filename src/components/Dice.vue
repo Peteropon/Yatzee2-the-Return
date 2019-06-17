@@ -9,24 +9,24 @@
 </template>
 
 <script>
-import Die from './Die'
-export default {
-    name: 'Dice',
-    components: {
-        Die
-    },
-    computed: {
-        dice() {
-            return this.$store.state.dice
-        }
-    },
-    methods: {
-        selectDie(die, index) {
-            this.$store.dispatch('toggleSelectedDie', index)
+import Die from './Die';
 
-        }
-    }
-}
+export default {
+  name: 'Dice',
+  components: {
+    Die,
+  },
+  computed: {
+    dice() {
+      return this.$store.state.dice;
+    },
+  },
+  methods: {
+    selectDie(die, index) {
+      this.$store.dispatch('toggleSelectedDie', index);
+    },
+  },
+};
 </script>
 
 <style scoped>

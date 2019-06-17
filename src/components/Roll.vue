@@ -4,13 +4,13 @@
 
 <script>
 export default {
-    name: 'Roll',
-    methods: {
-        rollDice() {
-            this.$store.dispatch('rollDice')
-        }
-    }
-}
+  name: 'Roll',
+  methods: {
+    rollDice() {
+      this.$store.dispatch('rollDice');
+    },
+  },
+};
 </script>
 
 <style>

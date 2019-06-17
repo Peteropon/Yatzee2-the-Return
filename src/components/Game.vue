@@ -7,16 +7,17 @@
 </template>
 
 <script>
-import Dice from './Dice'
-import Roll from './Roll'
-import Scoreboard from './Scoreboard'
+import Dice from './Dice';
+import Roll from './Roll';
+import Scoreboard from './Scoreboard';
+
 export default {
-    name: 'Game',
-    components: {
-        Dice,
-        Roll,
-        Scoreboard,
-    },
+  name: 'Game',
+  components: {
+    Dice,
+    Roll,
+    Scoreboard,
+  },
 };
 </script>
 
