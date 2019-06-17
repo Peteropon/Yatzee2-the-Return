@@ -1,5 +1,5 @@
 <template>
-    <div @click="registerPoints" :class="{selected: isSelected}"> Fives:
+    <div @click.once="registerPoints" :class="{selected: isSelected}"> Fives:
         <span v-if="!isSelected">{{ getFives }} / 25</span>
         <span v-else>{{ finalSum }}</span>    </div>
 </template>
