@@ -1,12 +1,18 @@
 <template>
-    <div>
-        <span></span>
+    <div> Bonus:
+        <span v-if="upperSum > 63"> 50 </span>
+        <span v-else> 0 </span>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Bones',
+  computed: {
+    upperSum() {
+      return this.$store.getters.getUpperSum;
+    },
+  },
 }
 </script>
 
