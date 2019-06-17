@@ -6,6 +6,7 @@
         <fours></fours>
         <fives></fives>
         <sixes></sixes>
+        <upper-sum></upper-sum>
     </div>
 </template>
 
@@ -16,8 +17,9 @@ import Threes from './Threes'
 import Fours from './Fours'
 import Fives from './Fives'
 import Sixes from './Sixes'
+import UpperSum from './UpperSum'
 export default {
-    name: 'UpperTable',
+    name: 'UpperScoreboard',
     components: {
         Ones,
         Twos,
@@ -25,6 +27,7 @@ export default {
         Fours,
         Fives,
         Sixes,
+        UpperSum,
     },
 }
 </script>

@@ -1,15 +1,15 @@
 <template>
     <div>
-        <upper-table></upper-table>
+        <upper-scoreboard></upper-scoreboard>
     </div>
 </template>
 
 <script>
-import UpperTable from './UpperTable'
+import UpperScoreboard from './UpperScoreboard'
 export default {
     name: 'Table',
     components: {
-        UpperTable,
+        UpperScoreboard,
     },
 }
 </script>

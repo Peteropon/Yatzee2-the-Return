@@ -52,6 +52,7 @@ export default new Vuex.Store({
   },
   getters: {
     getDie: state => state.dice,
+    getUpperSum: state => state.upperSum,
   },
   mutations: {
     rollDice(state) {
@@ -98,6 +99,7 @@ export default new Vuex.Store({
       state.dice.forEach((die) => {
         if (die.selected) {
           state.totalSum += die.value;
+          state.upperSum += die.value;
           die.selected = false;
         }
       });

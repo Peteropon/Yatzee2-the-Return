@@ -2,20 +2,20 @@
     <div>
         <dice></dice>
         <roll></roll>
-        <Table></Table>
+        <scoreboard></scoreboard>
     </div>
 </template>
 
 <script>
 import Dice from './Dice'
 import Roll from './Roll'
-import Table from './Table'
+import Scoreboard from './Scoreboard'
 export default {
     name: 'Game',
     components: {
         Dice,
         Roll,
-        Table,
+        Scoreboard,
     },
 };
 </script>
