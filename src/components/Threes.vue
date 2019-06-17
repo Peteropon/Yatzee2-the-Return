@@ -1,6 +1,6 @@
 <template>
-    <div @click="registerPoints"> Threes:
-        <span v-if="!selected"> {{ getThrees }}</span>
+    <div @click="registerPoints" :class="{ selected: isSelected}"> Threes:
+        <span v-if="!isSelected"> {{ getThrees }} / 15</span>
         <span v-else>{{ finalSum }}</span>
     </div>
 </template>
@@ -10,7 +10,7 @@ export default {
     name: 'Threes',
     data() {
         return {
-            selected: false,
+            isSelected: false,
             finalSum: 0
         }
     },
@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         registerPoints() {
-            this.selected = true
+            this.isSelected = true
             this.$store.dispatch('registerPoints')
             this.finalSum = this.$store.state.threes * 3
         }
@@ -30,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+    .selected {
+        background-color:coral;
+    }
 </style>

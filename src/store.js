@@ -98,6 +98,7 @@ export default new Vuex.Store({
       state.dice.forEach((die) => {
         if (die.selected) {
           state.totalSum += die.value;
+          die.selected = false;
         }
       });
     },

@@ -7,7 +7,12 @@
 <script>
 export default {
     name: 'Die',
-    props: ['die'],
+    props: {
+        die: {
+            type: Object,
+            required: true,
+        }
+    }
 
     // data() {
     //     return {
@@ -28,7 +33,7 @@ export default {
 <style scoped>
     .die-img{
         max-width: 10vw;
-    	transition: all .2s ease-in-out;
+    	transition: all .1s ease-in-out;
     }
 
     .div-img{

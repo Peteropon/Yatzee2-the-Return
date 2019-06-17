@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="table-content">
         <ones></ones>
         <twos></twos>
         <threes></threes>
@@ -29,6 +29,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    .table-content > *{
+        margin-top: 1%;
+        border-style:outset;
+    }
 
 </style>
