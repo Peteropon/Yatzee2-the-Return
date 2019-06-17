@@ -40,6 +40,6 @@ export default {
         margin: 1%;
     }
     .die-img:hover {
-	filter: hue-rotate(180deg);
+	    filter: hue-rotate(180deg);
     }
 </style>

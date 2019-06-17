@@ -40,6 +40,7 @@ export default {
     .table-content > *{
         margin-top: 1%;
         border-style:outset;
+        border-radius: 5px;
     }
 
 </style>

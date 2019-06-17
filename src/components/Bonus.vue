@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name: 'Bones',
+    name: 'Bonus',
   computed: {
     upperSum() {
       return this.$store.getters.getUpperSum;
