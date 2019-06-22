@@ -49,6 +49,10 @@ export default new Vuex.Store({
     fours: 0,
     fives: 0,
     sixes: 0,
+    onePairSum: 0,
+    onePairValidator: false,
+    twoPairSum: 0,
+    twoPairValidator: false,
   },
   getters: {
     getDie: state => state.dice,
@@ -57,14 +61,47 @@ export default new Vuex.Store({
   mutations: {
     rollDice(state) {
       this.commit('clearNumberCounters');
+      let sortedDice = [];
       state.dice.forEach((die) => {
         if (!die.selected) {
           const number = Math.floor(Math.random() * 6) + 1;
           die.value = number;
           die.img = require(`@/assets/Dice-${number}.png`);
+          // sortedDice.push(die.value);
         }
       });
+      state.dice.forEach(die => sortedDice.push(die.value));
+      sortedDice.sort((a, b) => a - b);
+      console.log(sortedDice);
       this.commit('countNumbers');
+      this.commit('pairValidation', sortedDice);
+    },
+    twoPairsValidation(state, sortedDice) {
+      for (let i = 0; i < sortedDice.length - 2; i++) {
+        if (sortedDice[i] === sortedDice[i + 1]) {
+          if (sortedDice[i + 2] === sortedDice[i + 3]
+              || sortedDice[i + 3] === sortedDice[i + 4]) console.log('two pairs');
+        }
+      }
+
+    },
+    pairValidation(state, sortedDice) {
+      let tempArray = [];
+      for (let i = 0; i < sortedDice.length - 1; i++) {
+        if (sortedDice[i] === sortedDice[i + 1]) {
+          tempArray.push(sortedDice[i + 1]);
+          state.onePairSum = sortedDice[i] * 2;
+          state.onePairValidator = true;
+        }
+      }
+      console.log(tempArray);
+      if (tempArray.length === 2 && tempArray[0] !== tempArray[1]) {
+        state.twoPairSum = (tempArray[0] * 2) + (tempArray[1] * 2);
+        state.twoPairValidator = true;
+        console.log(`two pairs ${ state.twoPairSum}`);
+      }
+      else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) console.log('two pairs and full house');
+      else if (tempArray.length === 3) console.log('two pairs and four in a row');
     },
     toggleSelectedDie(state, payload) {
       if (state.dice[payload].selected) state.dice[payload].selected = false;
@@ -94,6 +131,10 @@ export default new Vuex.Store({
       state.fours = 0;
       state.fives = 0;
       state.sixes = 0;
+      state.twoPairValidator = false;
+      state.twoPairSum = 0;
+      state.onePairSum = 0;
+      state.onePairValidator = false;
     },
     registerPoints(state) {
       state.dice.forEach((die) => {

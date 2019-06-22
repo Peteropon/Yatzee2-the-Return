@@ -18,6 +18,7 @@ export default {
     .table-content > *{
         margin-top: 1%;
         border-style:outset;
-         border-radius: 5px;
+        border-radius: 5px;
+        padding: 0.3em 0 0.3em 1em ;
    }
 </style>

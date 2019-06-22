@@ -37,10 +37,11 @@ export default {
 </script>
 
 <style scoped>
-    .table-content > *{
+    .table-content >*{
         margin-top: 1%;
         border-style:outset;
         border-radius: 5px;
+        padding: 0.3em 0 0.3em 1em ;
     }
 
 </style>
