@@ -1,15 +1,18 @@
 <template>
     <div class="table-content">
         <one-pair></one-pair>
+        <two-pairs></two-pairs>
     </div>
 </template>
 
 <script>
 import OnePair from './OnePair';
+import TwoPairs from './TwoPairs';
 export default {
     name: 'LowerScoreboard',
     components: {
         OnePair,
+        TwoPairs,
     }
 }
 </script>
