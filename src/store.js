@@ -7,6 +7,7 @@ import letterA from './assets/letterA.png';
 import letterY from './assets/letterY.png';
 import letterT from './assets/letterT.png';
 import letterZ from './assets/letterZ.png';
+import { stat } from 'fs';
 
 Vue.use(Vuex);
 
@@ -55,6 +56,9 @@ export default new Vuex.Store({
     twoPairSum: 0,
     twoPairFinal: 0,
     twoPairValidator: false,
+    threeKindSum: 0,
+    threeKind: false,
+    threeKindFinal: 0,
   },
   getters: {
     getDie: state => state.dice,
@@ -69,7 +73,6 @@ export default new Vuex.Store({
           const number = Math.floor(Math.random() * 6) + 1;
           die.value = number;
           die.img = require(`@/assets/Dice-${number}.png`);
-          // sortedDice.push(die.value);
         }
       });
       state.dice.forEach(die => sortedDice.push(die.value));
@@ -78,15 +81,14 @@ export default new Vuex.Store({
       this.commit('countNumbers');
       this.commit('pairValidation', sortedDice);
     },
-    twoPairsValidation(state, sortedDice) {
-      for (let i = 0; i < sortedDice.length - 2; i++) {
-        if (sortedDice[i] === sortedDice[i + 1]) {
-          if (sortedDice[i + 2] === sortedDice[i + 3]
-              || sortedDice[i + 3] === sortedDice[i + 4]) console.log('two pairs');
-        }
-      }
-
-    },
+    // twoPairsValidation(state, sortedDice) {
+    //   for (let i = 0; i < sortedDice.length - 2; i++) {
+    //     if (sortedDice[i] === sortedDice[i + 1]) {
+    //       if (sortedDice[i + 2] === sortedDice[i + 3]
+    //           || sortedDice[i + 3] === sortedDice[i + 4]) console.log('two pairs');
+    //     }
+    //   }
+    // },
     pairValidation(state, sortedDice) {
       let tempArray = [];
       for (let i = 0; i < sortedDice.length - 1; i++) {
@@ -101,8 +103,11 @@ export default new Vuex.Store({
         state.twoPairSum = (tempArray[0] * 2) + (tempArray[1] * 2);
         state.twoPairValidator = true;
         console.log(`two pairs ${state.twoPairSum}`);
-      }
-      else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) console.log('two pairs and full house');
+      } else if (tempArray.length === 2 && tempArray[0] === tempArray[1]) {
+        state.threeKind = true;
+        state.threeKindSum = tempArray[0] * 3;
+        console.log('3 of a kind');
+      } else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) console.log('two pairs and full house');
       else if (tempArray.length === 3) console.log('two pairs and four in a row');
     },
     toggleSelectedDie(state, payload) {
@@ -137,6 +142,8 @@ export default new Vuex.Store({
       state.twoPairSum = 0;
       state.onePairSum = 0;
       state.onePairValidator = false;
+      state.threeKind = false;
+      state.threeKindSum = 0;
     },
     registerPoints(state) {
       state.dice.forEach((die) => {
@@ -155,6 +162,11 @@ export default new Vuex.Store({
     registerTwoPair(state) {
       state.twoPairFinal = state.twoPairSum;
       state.totalSum += state.twoPairFinal;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerThreeKind(state) {
+      state.threeKindFinal = state.threeKindSum;
+      state.totalSum += state.threeKindFinal;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },

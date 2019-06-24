@@ -1,6 +1,6 @@
 <template>
     <div> Bonus:
-        <span v-if="upperSum > 63"> 50 </span>
+        <span v-if="upperSum >= 63"> 50 </span>
         <span v-else> 0 </span>
     </div>
 </template>

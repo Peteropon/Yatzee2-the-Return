@@ -1,35 +1,35 @@
 <template>
     <div @click.once="registerPoints" :class="{selected: isSelected,
-    available: onePairExists && !isSelected}">One Pair:
-        <span v-if="onePairExists && !isSelected">{{onePair}} / 12</span>
-        <span v-else-if="!isSelected">0 / 12</span>
-        <span v-else>{{ finalSum }}</span>
+    available: threeKindExist && !isSelected}"> Three Of A Kind:
+        <span v-if="threeKindExist && !isSelected">{{ threeKind }} / 18</span>
+        <span v-else-if="!isSelected">0 / 18</span>
+        <span v-else> {{finalSum}}</span>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'OnePair',
+    name: 'ThreeOfAKind',
     data() {
         return {
             isSelected: false,
         }
     },
     computed: {
-        onePair() {
-            return this.$store.state.onePairSum;
+        threeKindExist() {
+            return this.$store.state.threeKind;
         },
-        onePairExists() {
-            return this.$store.state.onePairValidator;
+        threeKind() {
+            return this.$store.state.threeKindSum;
         },
         finalSum() {
-            return this.$store.state.onePairFinal;
+            return this.$store.state.threeKindFinal;
         }
     },
     methods: {
         registerPoints() {
             this.isSelected = true;
-            this.$store.commit('registerOnePair');
+            this.$store.commit('registerThreeKind');
         }
     }
 }
