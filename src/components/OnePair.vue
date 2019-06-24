@@ -2,6 +2,7 @@
     <div @click.once="registerPoints" :class="{selected: isSelected,
     available: onePairExists && !isSelected}">One Pair:
         <span v-if="onePairExists && !isSelected">{{onePair}}</span>
+        <span v-else-if="!isSelected">0 / 12</span>
         <span v-else>{{ finalSum }}</span>
     </div>
 </template>

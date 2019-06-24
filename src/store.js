@@ -53,6 +53,7 @@ export default new Vuex.Store({
     onePairFinal: 0,
     onePairValidator: false,
     twoPairSum: 0,
+    twoPairFinal: 0,
     twoPairValidator: false,
   },
   getters: {
@@ -149,6 +150,11 @@ export default new Vuex.Store({
     registerOnePair(state) {
       state.onePairFinal = state.onePairSum;
       state.totalSum += state.onePairFinal;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerTwoPair(state) {
+      state.twoPairFinal = state.twoPairSum;
+      state.totalSum += state.twoPairFinal;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },
