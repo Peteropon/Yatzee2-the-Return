@@ -98,7 +98,7 @@ export default new Vuex.Store({
       if (tempArray.length === 2 && tempArray[0] !== tempArray[1]) {
         state.twoPairSum = (tempArray[0] * 2) + (tempArray[1] * 2);
         state.twoPairValidator = true;
-        console.log(`two pairs ${ state.twoPairSum}`);
+        console.log(`two pairs ${state.twoPairSum}`);
       }
       else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) console.log('two pairs and full house');
       else if (tempArray.length === 3) console.log('two pairs and four in a row');

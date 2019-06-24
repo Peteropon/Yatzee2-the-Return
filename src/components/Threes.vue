@@ -1,5 +1,6 @@
 <template>
-    <div @click.once="registerPoints" :class="{ selected: isSelected}"> Threes:
+    <div @click.once="registerPoints" :class="{ selected: isSelected,
+    available: getThrees > 0 && !isSelected}"> Threes:
         <span v-if="!isSelected"> {{ getThrees }} / 15</span>
         <span v-else>{{ finalSum }}</span>
     </div>
@@ -31,6 +32,9 @@ export default {
 
 <style>
     .selected {
-        background-color:coral;
+        background-color:rgba(90, 209, 173, 0.8);
+    }
+    .available {
+        background-color: rgb(14, 218, 92);
     }
 </style>
