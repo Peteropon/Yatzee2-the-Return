@@ -50,6 +50,7 @@ export default new Vuex.Store({
     fives: 0,
     sixes: 0,
     onePairSum: 0,
+    onePairFinal: 0,
     onePairValidator: false,
     twoPairSum: 0,
     twoPairValidator: false,
@@ -144,6 +145,11 @@ export default new Vuex.Store({
           die.selected = false;
         }
       });
+    },
+    registerOnePair(state) {
+      state.onePairFinal = state.onePairSum;
+      state.totalSum += state.onePairFinal;
+      state.dice.forEach((die) => { die.selected = false; });
     },
   },
   actions: {
