@@ -119,7 +119,12 @@ export default new Vuex.Store({
     },
     confirmFullHouse(state, payload) {
       state.fullHouse = true;
-      state.fullHouseSum = payload.reduce((num, total) => total + num);
+      if (payload[1] < payload[2]) {
+        state.fullHouseSum = payload[0] * 3 + payload[2] * 2;
+      } else if (payload[1] === payload[2]) {
+        state.fullHouseSum = payload[0] * 2 + payload[2] * 3;
+      }
+      // state.fullHouseSum = payload.reduce((num, total) => total + num);
       console.log('full house');
     },
     confirmTwoPairs(state, payload) {
@@ -171,6 +176,10 @@ export default new Vuex.Store({
       state.onePairValidator = false;
       state.threeKind = false;
       state.threeKindSum = 0;
+      state.fourKind = false;
+      state.fourKindSum = 0;
+      state.fullHouse = false;
+      state.fullHouseSum = 0;
     },
     registerPoints(state) {
       state.dice.forEach((die) => {
