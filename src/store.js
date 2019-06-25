@@ -62,6 +62,9 @@ export default new Vuex.Store({
     fourKindSum: 0,
     fourKind: false,
     fourKindFinal: 0,
+    fullHouse: false,
+    fullHouseSum: 0,
+    fullHouseFinal: 0,
   },
   getters: {
     getDie: state => state.dice,
@@ -106,10 +109,18 @@ export default new Vuex.Store({
         this.commit('confirmTwoPairs', tempArray);
       } else if (tempArray.length === 2 && tempArray[0] === tempArray[1]) {
         this.commit('confirmThreeKind', tempArray);
-      } else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) console.log('two pairs and full house');
-      else if (tempArray.length === 3) {
+      } else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) {
+        this.commit('confirmThreeKind', tempArray);
+        this.commit('confirmFullHouse', tempArray);
+      } else if (tempArray.length === 3) {
+        this.commit('confirmThreeKind', tempArray);
         this.commit('confirmFourKind', tempArray);
       }
+    },
+    confirmFullHouse(state, payload) {
+      state.fullHouse = true;
+      state.fullHouseSum = payload.reduce((num, total) => total + num);
+      console.log('full house');
     },
     confirmTwoPairs(state, payload) {
       state.twoPairSum = (payload[0] * 2) + (payload[1] * 2);
@@ -188,6 +199,11 @@ export default new Vuex.Store({
     registerFourKind(state) {
       state.fourKindFinal = state.fourKindSum;
       state.totalSum += state.fourKindFinal;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerFullHouse(state) {
+      state.fullHouseFinal = state.fullHouseSum;
+      state.totalSum += state.fullHouseFinal;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },
