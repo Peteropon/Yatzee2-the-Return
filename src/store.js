@@ -68,6 +68,7 @@ export default new Vuex.Store({
     smallStraightSelected: false,
     largeStraight: false,
     largeStraightSelected: false,
+    yatzy: false,
   },
   getters: {
     getDie: state => state.dice,
@@ -109,6 +110,10 @@ export default new Vuex.Store({
         this.commit('confirmThreeKind', tempArray);
         this.commit('confirmFullHouse', sortedDice);
       } else if (tempArray.length === 3) {
+        this.commit('confirmThreeKind', tempArray);
+        this.commit('confirmFourKind', tempArray);
+      } else if (tempArray.length === 4) {
+        state.yatzy = true;
         this.commit('confirmThreeKind', tempArray);
         this.commit('confirmFourKind', tempArray);
       }
@@ -184,6 +189,7 @@ export default new Vuex.Store({
       state.fullHouseSum = 0;
       state.smallStraight = false;
       state.largeStraight = false;
+      state.yatzy = false;
     },
     registerPoints(state) {
       state.dice.forEach((die) => {
@@ -220,12 +226,12 @@ export default new Vuex.Store({
       state.dice.forEach((die) => { die.selected = false; });
     },
     registerSmallStraight(state) {
-      state.totalSum += 15;
+      if (state.smallStraight) state.totalSum += 15;
       state.smallStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
     },
     registerLargeStraight(state) {
-      state.totalSum += 20;
+      if (state.largeStraight) state.totalSum += 20;
       state.largeStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
     },
