@@ -3,6 +3,7 @@
         <one-pair></one-pair>
         <two-pairs></two-pairs>
         <three-of-a-kind></three-of-a-kind>
+        <four-of-a-kind></four-of-a-kind>
     </div>
 </template>
 
@@ -10,12 +11,14 @@
 import OnePair from './OnePair';
 import TwoPairs from './TwoPairs';
 import ThreeOfAKind from './ThreeOfAKind';
+import FourOfAKind from './FourOfAKind';
 export default {
     name: 'LowerScoreboard',
     components: {
         OnePair,
         TwoPairs,
-        ThreeOfAKind
+        ThreeOfAKind,
+        FourOfAKind,
     }
 }
 </script>

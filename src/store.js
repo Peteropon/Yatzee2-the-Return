@@ -59,6 +59,9 @@ export default new Vuex.Store({
     threeKindSum: 0,
     threeKind: false,
     threeKindFinal: 0,
+    fourKindSum: 0,
+    fourKind: false,
+    fourKindFinal: 0,
   },
   getters: {
     getDie: state => state.dice,
@@ -100,15 +103,28 @@ export default new Vuex.Store({
       }
       console.log(tempArray);
       if (tempArray.length === 2 && tempArray[0] !== tempArray[1]) {
-        state.twoPairSum = (tempArray[0] * 2) + (tempArray[1] * 2);
-        state.twoPairValidator = true;
-        console.log(`two pairs ${state.twoPairSum}`);
+        this.commit('confirmTwoPairs', tempArray);
       } else if (tempArray.length === 2 && tempArray[0] === tempArray[1]) {
-        state.threeKind = true;
-        state.threeKindSum = tempArray[0] * 3;
-        console.log('3 of a kind');
+        this.commit('confirmThreeKind', tempArray);
       } else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) console.log('two pairs and full house');
-      else if (tempArray.length === 3) console.log('two pairs and four in a row');
+      else if (tempArray.length === 3) {
+        this.commit('confirmFourKind', tempArray);
+      }
+    },
+    confirmTwoPairs(state, payload) {
+      state.twoPairSum = (payload[0] * 2) + (payload[1] * 2);
+      state.twoPairValidator = true;
+      console.log(`two pairs ${state.twoPairSum}`);
+    },
+    confirmThreeKind(state, payload) {
+      state.threeKind = true;
+      state.threeKindSum = payload[0] * 3;
+      console.log('3 of a kind');
+    },
+    confirmFourKind(state, payload) {
+      state.fourKind = true;
+      state.fourKindSum = payload[0] * 4;
+      console.log('four of a kind');
     },
     toggleSelectedDie(state, payload) {
       if (state.dice[payload].selected) state.dice[payload].selected = false;
@@ -167,6 +183,11 @@ export default new Vuex.Store({
     registerThreeKind(state) {
       state.threeKindFinal = state.threeKindSum;
       state.totalSum += state.threeKindFinal;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerFourKind(state) {
+      state.fourKindFinal = state.fourKindSum;
+      state.totalSum += state.fourKindFinal;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },
