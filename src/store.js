@@ -7,7 +7,6 @@ import letterA from './assets/letterA.png';
 import letterY from './assets/letterY.png';
 import letterT from './assets/letterT.png';
 import letterZ from './assets/letterZ.png';
-import { stat } from 'fs';
 
 Vue.use(Vuex);
 
@@ -65,6 +64,9 @@ export default new Vuex.Store({
     fullHouse: false,
     fullHouseSum: 0,
     fullHouseFinal: 0,
+    smallStraight: false,
+    smallStraightSelected: false,
+    largeStraight: false,
   },
   getters: {
     getDie: state => state.dice,
@@ -86,15 +88,8 @@ export default new Vuex.Store({
       console.log(sortedDice);
       this.commit('countNumbers');
       this.commit('pairValidation', sortedDice);
+      this.commit('straightValidation', sortedDice);
     },
-    // twoPairsValidation(state, sortedDice) {
-    //   for (let i = 0; i < sortedDice.length - 2; i++) {
-    //     if (sortedDice[i] === sortedDice[i + 1]) {
-    //       if (sortedDice[i + 2] === sortedDice[i + 3]
-    //           || sortedDice[i + 3] === sortedDice[i + 4]) console.log('two pairs');
-    //     }
-    //   }
-    // },
     pairValidation(state, sortedDice) {
       let tempArray = [];
       for (let i = 0; i < sortedDice.length - 1; i++) {
@@ -111,20 +106,26 @@ export default new Vuex.Store({
         this.commit('confirmThreeKind', tempArray);
       } else if (tempArray.length === 3 && (tempArray[0] !== tempArray[2])) {
         this.commit('confirmThreeKind', tempArray);
-        this.commit('confirmFullHouse', tempArray);
+        this.commit('confirmFullHouse', sortedDice);
       } else if (tempArray.length === 3) {
         this.commit('confirmThreeKind', tempArray);
         this.commit('confirmFourKind', tempArray);
       }
     },
+    straightValidation(state, payload) {
+      const stringFromArr = payload.join('');
+      console.log(stringFromArr);
+      if (stringFromArr === '12345' && !state.smallStraightSelected) {
+        console.log('small straight');
+        state.smallStraight = true;
+      } else if (stringFromArr === '23456') {
+        console.log('large straight');
+        state.largeStraight = true;
+      }
+    },
     confirmFullHouse(state, payload) {
       state.fullHouse = true;
-      if (payload[1] < payload[2]) {
-        state.fullHouseSum = payload[0] * 3 + payload[2] * 2;
-      } else if (payload[1] === payload[2]) {
-        state.fullHouseSum = payload[0] * 2 + payload[2] * 3;
-      }
-      // state.fullHouseSum = payload.reduce((num, total) => total + num);
+      state.fullHouseSum = payload.reduce((num, total) => total + num);
       console.log('full house');
     },
     confirmTwoPairs(state, payload) {
@@ -134,7 +135,7 @@ export default new Vuex.Store({
     },
     confirmThreeKind(state, payload) {
       state.threeKind = true;
-      state.threeKindSum = payload[0] * 3;
+      state.threeKindSum = payload[1] * 3;
       console.log('3 of a kind');
     },
     confirmFourKind(state, payload) {
@@ -180,6 +181,8 @@ export default new Vuex.Store({
       state.fourKindSum = 0;
       state.fullHouse = false;
       state.fullHouseSum = 0;
+      state.smallStraight = false;
+      state.largeStraight = false;
     },
     registerPoints(state) {
       state.dice.forEach((die) => {
@@ -213,6 +216,11 @@ export default new Vuex.Store({
     registerFullHouse(state) {
       state.fullHouseFinal = state.fullHouseSum;
       state.totalSum += state.fullHouseFinal;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerSmallStraight(state) {
+      state.totalSum += 15;
+      state.smallStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },
