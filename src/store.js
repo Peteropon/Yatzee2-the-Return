@@ -67,6 +67,7 @@ export default new Vuex.Store({
     smallStraight: false,
     smallStraightSelected: false,
     largeStraight: false,
+    largeStraightSelected: false,
   },
   getters: {
     getDie: state => state.dice,
@@ -221,6 +222,11 @@ export default new Vuex.Store({
     registerSmallStraight(state) {
       state.totalSum += 15;
       state.smallStraightSelected = true;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerLargeStraight(state) {
+      state.totalSum += 20;
+      state.largeStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },

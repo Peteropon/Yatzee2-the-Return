@@ -5,6 +5,7 @@
         <three-of-a-kind></three-of-a-kind>
         <four-of-a-kind></four-of-a-kind>
         <small-straight></small-straight>
+        <large-straight></large-straight>
         <full-house></full-house>
     </div>
 </template>
@@ -15,6 +16,7 @@ import TwoPairs from './TwoPairs';
 import ThreeOfAKind from './ThreeOfAKind';
 import FourOfAKind from './FourOfAKind';
 import SmallStraight from './SmallStraight';
+import LargeStraight from './LargeStraight';
 import FullHouse from './FullHouse';
 export default {
     name: 'LowerScoreboard',
@@ -24,6 +26,7 @@ export default {
         ThreeOfAKind,
         FourOfAKind,
         SmallStraight,
+        LargeStraight,
         FullHouse,
     }
 }
