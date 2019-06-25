@@ -7,6 +7,7 @@
         <small-straight></small-straight>
         <large-straight></large-straight>
         <full-house></full-house>
+        <yatzy></yatzy>
     </div>
 </template>
 
@@ -18,6 +19,7 @@ import FourOfAKind from './FourOfAKind';
 import SmallStraight from './SmallStraight';
 import LargeStraight from './LargeStraight';
 import FullHouse from './FullHouse';
+import Yatzy from './Yatzy';
 export default {
     name: 'LowerScoreboard',
     components: {
@@ -28,6 +30,7 @@ export default {
         SmallStraight,
         LargeStraight,
         FullHouse,
+        Yatzy
     }
 }
 </script>

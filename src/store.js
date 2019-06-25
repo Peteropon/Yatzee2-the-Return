@@ -235,6 +235,10 @@ export default new Vuex.Store({
       state.largeStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
     },
+    registerYatzy(state) {
+      if (state.yatzy) state.totalSum += 50;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
   },
   actions: {
     rollDice({ commit }) {
