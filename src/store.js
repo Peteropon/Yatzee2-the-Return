@@ -69,6 +69,7 @@ export default new Vuex.Store({
     largeStraight: false,
     largeStraightSelected: false,
     yatzy: false,
+    chanceFinal: 0,
   },
   getters: {
     getDie: state => state.dice,
@@ -87,6 +88,7 @@ export default new Vuex.Store({
       });
       state.dice.forEach(die => sortedDice.push(die.value));
       sortedDice.sort((a, b) => a - b);
+      state.tempSum = sortedDice.reduce((num, total) => total + num);
       console.log(sortedDice);
       this.commit('countNumbers');
       this.commit('pairValidation', sortedDice);
@@ -237,6 +239,11 @@ export default new Vuex.Store({
     },
     registerYatzy(state) {
       if (state.yatzy) state.totalSum += 50;
+      state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerChance(state) {
+      state.chanceFinal = state.tempSum;
+      state.totalSum += state.chanceFinal;
       state.dice.forEach((die) => { die.selected = false; });
     },
   },
