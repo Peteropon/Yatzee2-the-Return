@@ -8,6 +8,7 @@
         <sixes></sixes>
         <upper-sum></upper-sum>
         <bonus></bonus>
+        <total-sum></total-sum>
     </div>
 </template>
 
@@ -20,6 +21,7 @@ import Fives from './Fives';
 import Sixes from './Sixes';
 import UpperSum from './UpperSum';
 import Bonus from './Bonus';
+import TotalSum from './TotalSum';
 
 export default {
   name: 'UpperScoreboard',
@@ -32,6 +34,7 @@ export default {
     Sixes,
     UpperSum,
     Bonus,
+    TotalSum
   },
 };
 </script>

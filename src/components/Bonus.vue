@@ -1,6 +1,6 @@
 <template>
-    <div> Bonus:
-        <span v-if="upperSum >= 63"> 50 </span>
+    <div :class="{available: bonusAvailable}"> Bonus:
+        <span v-if="bonusAvailable"> 50 </span>
         <span v-else> 0 </span>
     </div>
 </template>
@@ -9,13 +9,15 @@
 export default {
     name: 'Bonus',
   computed: {
-    upperSum() {
-      return this.$store.getters.getUpperSum;
+    bonusAvailable() {
+      return this.$store.state.bonusAvailable;
     },
   },
 }
 </script>
 
 <style scoped>
-
+    .available {
+        background-color: rgb(14, 218, 92);
+    }
 </style>

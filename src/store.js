@@ -70,6 +70,7 @@ export default new Vuex.Store({
     largeStraightSelected: false,
     yatzy: false,
     chanceFinal: 0,
+    bonusAvailable: false,
   },
   getters: {
     getDie: state => state.dice,
@@ -201,6 +202,7 @@ export default new Vuex.Store({
           die.selected = false;
         }
       });
+      if (state.upperSum >= 63) state.bonusAvailable = true;
     },
     registerOnePair(state) {
       state.onePairFinal = state.onePairSum;
@@ -245,6 +247,9 @@ export default new Vuex.Store({
       state.chanceFinal = state.tempSum;
       state.totalSum += state.chanceFinal;
       state.dice.forEach((die) => { die.selected = false; });
+    },
+    registerBonus(state) {
+      state.bonusAvailable = true;
     },
   },
   actions: {
