@@ -1,6 +1,6 @@
 <template>
     <div @click.once="registerPoints" :class="{selected: isSelected,
-    available: threeKindExist && !isSelected}"> Three Of A Kind:
+    available: threeKindExist && !isSelected}"> 3 Of A Kind:
         <span v-if="threeKindExist && !isSelected">{{ threeKind }} / 18</span>
         <span v-else-if="!isSelected">0 / 18</span>
         <span v-else> {{finalSum}}</span>
