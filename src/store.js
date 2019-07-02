@@ -91,7 +91,6 @@ export default new Vuex.Store({
       state.dice.forEach(die => sortedDice.push(die.value));
       sortedDice.sort((a, b) => a - b);
       state.tempSum = sortedDice.reduce((num, total) => total + num);
-      console.log(sortedDice);
       this.commit('countNumbers');
       this.commit('pairValidation', sortedDice);
       this.commit('straightValidation', sortedDice);
@@ -106,7 +105,6 @@ export default new Vuex.Store({
           state.onePairValidator = true;
         }
       }
-      console.log(tempArray);
       if (tempArray.length === 2 && tempArray[0] !== tempArray[1]) {
         this.commit('confirmTwoPairs', tempArray);
       } else if (tempArray.length === 2 && tempArray[0] === tempArray[1]) {
@@ -196,12 +194,12 @@ export default new Vuex.Store({
       if (!state.largeStraightSelected) state.largeStraight = false;
       state.yatzy = false;
     },
-    registerPoints(state) {
+    registerPoints(state, payload) {
       state.dice.forEach((die) => {
-        if (die.selected) {
+        if (die.value === payload) {
           state.totalSum += die.value;
           state.upperSum += die.value;
-          die.selected = false;
+          if (die.selected) die.selected = false;
         }
       });
       if (state.upperSum >= 63) state.bonusAvailable = true;
@@ -274,11 +272,11 @@ export default new Vuex.Store({
       state.bonusAvailable = true;
     },
     resetDiceImages(state) {
-        state.dice[0].img = letterY;
-        state.dice[1].img = letterA;
-        state.dice[2].img = letterT;
-        state.dice[3].img = letterZ;
-        state.dice[4].img = letterY;
+      state.dice[0].img = letterY;
+      state.dice[1].img = letterA;
+      state.dice[2].img = letterT;
+      state.dice[3].img = letterZ;
+      state.dice[4].img = letterY;
     },
   },
   actions: {
@@ -291,8 +289,8 @@ export default new Vuex.Store({
     countNumbers({ commit }, value) {
       commit('countNumbers', value);
     },
-    registerPoints({ commit }) {
-      commit('registerPoints');
+    registerPoints({ commit }, payload) {
+      commit('registerPoints', payload);
     },
   },
 });

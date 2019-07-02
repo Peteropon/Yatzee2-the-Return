@@ -23,7 +23,7 @@ export default {
   methods: {
     registerPoints() {
       this.isSelected = true;
-      this.$store.dispatch('registerPoints');
+      this.$store.dispatch('registerPoints', 6);
       this.finalSum = this.$store.state.sixes * 6;
     },
   },
