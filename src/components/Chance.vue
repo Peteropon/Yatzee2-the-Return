@@ -1,6 +1,6 @@
 <template>
     <div @click.once="registerPoints" :class="{selected: isSelected,
-    available: !isSelected}"> Chance:
+    available: !isSelected && sum > 0}"> Chance:
         <span v-if="!isSelected"> {{ sum }} / 30 </span>
         <span v-else> {{ finalSum }} </span>
     </div>

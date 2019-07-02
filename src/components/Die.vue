@@ -32,6 +32,6 @@ export default {
     }
     .die-img:active {
         box-shadow: 0 5px #6660;
-        transform: translateY(4px);
+        transform: translateY(6px);
     }
 </style>

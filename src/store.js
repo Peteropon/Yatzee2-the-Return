@@ -193,6 +193,7 @@ export default new Vuex.Store({
       if (!state.smallStraightSelected) state.smallStraight = false;
       if (!state.largeStraightSelected) state.largeStraight = false;
       state.yatzy = false;
+      state.tempSum = 0;
     },
     registerPoints(state, payload) {
       state.dice.forEach((die) => {
