@@ -13,20 +13,6 @@ export default {
       required: true,
     },
   },
-
-  // data() {
-  //     return {
-  //         image
-  //     }
-  // },
-  // beforeMount() {
-  //     const value = Math.floor(Math.random() * 7) +1
-  //     //this.$store.state.dice[0].value = value
-  //     this.image = require('@/assets/Dice-' + value + '.png')
-  //     //this.image = this.$store.state.dice[0].img
-
-  // },
-
 };
 </script>
 
