@@ -24,6 +24,7 @@ export default {
 
     .div-img{
         margin: 1%;
+        border-radius: 5px;
     }
     .die-img:hover {
 	    filter: hue-rotate(180deg);

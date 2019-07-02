@@ -38,6 +38,6 @@ export default {
 	filter: grayscale(0%);
 }
 .selected {
-	filter: grayscale(100%);
+	filter: grayscale(80%);
 }
 </style>

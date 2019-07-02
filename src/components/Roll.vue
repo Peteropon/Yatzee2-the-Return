@@ -41,14 +41,25 @@ export default {
 button {
     border-radius: 4px;
     margin-left: 10%;
+    transition-duration: 0.2s;
+    background-color: #008CBA;
+    color: azure;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
 }
 button:hover {
     cursor: pointer;
+    border: solid #008CBA;
+    background-color: azure;
+    color: black;
+}
+button:active {
+  box-shadow: 0 5px #6660;
+  transform: translateY(2px);
 }
 .roll-count {
-    /* background-color: aquamarine; */
     padding: 0.3em 1em 0;
-    /* float: right; */
     margin-right: 5%;
+    border-radius: 4px;
 }
 </style>
