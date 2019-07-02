@@ -33,7 +33,7 @@ export default {
 <style scoped>
     .die-img{
         max-width: 10vw;
-    	transition: all .1s ease-in-out;
+    	transition: all .3s ease-in-out;
     }
 
     .div-img{

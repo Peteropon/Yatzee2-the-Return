@@ -190,8 +190,8 @@ export default new Vuex.Store({
       state.fourKindSum = 0;
       state.fullHouse = false;
       state.fullHouseSum = 0;
-      state.smallStraight = false;
-      state.largeStraight = false;
+      if (!state.smallStraightSelected) state.smallStraight = false;
+      if (!state.largeStraightSelected) state.largeStraight = false;
       state.yatzy = false;
     },
     registerPoints(state) {

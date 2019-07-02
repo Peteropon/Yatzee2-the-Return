@@ -4,7 +4,7 @@
         <span v-if="largeStraightExist && !isSelected"> 20 / 20</span>
         <span v-else-if="!isSelected"> 0 / 20</span>
         <span v-else-if="isSelected && !largeStraightExist"> 0 </span>
-        <span v-else> 15 </span>
+        <span v-else> 20 </span>
     </div>
 </template>
 

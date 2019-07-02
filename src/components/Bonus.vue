@@ -18,6 +18,6 @@ export default {
 
 <style scoped>
     .available {
-        background-color: rgb(14, 218, 92);
+        background-color: rgba(90, 209, 173, 0.8);
     }
 </style>

@@ -27,4 +27,9 @@ export default {
         flex: 45%;
         padding: 0.5em;
     }
+@media only screen and (max-width: 600px) {
+    .column {
+        padding: 0.2em;
+    }
+}
 </style>
