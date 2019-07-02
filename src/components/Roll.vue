@@ -1,7 +1,7 @@
 <template>
-<div>
+<div class="roll">
     <button @click="rollDice">Roll dice</button>
-    <roll-count :counter="counter"></roll-count>
+    <roll-count class="roll-count" :counter="counter"></roll-count>
 </div>
 </template>
 
@@ -12,11 +12,6 @@ export default {
   components: {
       RollCount,
   },
-//   data() {
-//       return {
-//           counter: 3,
-//       }
-//   },
   computed: {
       counter() {
           return this.$store.state.counter;
@@ -35,7 +30,20 @@ export default {
 </script>
 
 <style scoped>
+.roll {
+    display: flex;
+}
 button {
     border-radius: 4px;
+    margin-left: 10%;
+}
+button:hover {
+    cursor: pointer;
+}
+.roll-count {
+    /* background-color: aquamarine; */
+    margin-left: 15%;
+    padding: 0 1em 0 1em;
+    float: right;
 }
 </style>

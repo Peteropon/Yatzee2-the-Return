@@ -27,5 +27,6 @@ export default {
     }
     .die-img:hover {
 	    filter: hue-rotate(180deg);
+        cursor: pointer;
     }
 </style>

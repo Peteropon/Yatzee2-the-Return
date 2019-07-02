@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="game">
         <dice></dice>
         <roll></roll>
         <scoreboard></scoreboard>
@@ -22,5 +22,11 @@ export default {
 </script>
 
 <style>
-
+    .game {
+        display: grid;
+    }
+    .game > * {
+        justify-content: center;
+        margin-bottom: 2%;
+    }
 </style>
