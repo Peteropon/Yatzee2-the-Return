@@ -206,62 +206,79 @@ export default new Vuex.Store({
       });
       if (state.upperSum >= 63) state.bonusAvailable = true;
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerOnePair(state) {
       state.onePairFinal = state.onePairSum;
       state.totalSum += state.onePairFinal;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerTwoPair(state) {
       state.twoPairFinal = state.twoPairSum;
       state.totalSum += state.twoPairFinal;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerThreeKind(state) {
       state.threeKindFinal = state.threeKindSum;
       state.totalSum += state.threeKindFinal;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerFourKind(state) {
       state.fourKindFinal = state.fourKindSum;
       state.totalSum += state.fourKindFinal;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerFullHouse(state) {
       state.fullHouseFinal = state.fullHouseSum;
       state.totalSum += state.fullHouseFinal;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerSmallStraight(state) {
       if (state.smallStraight) state.totalSum += 15;
       state.smallStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerLargeStraight(state) {
       if (state.largeStraight) state.totalSum += 20;
       state.largeStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerYatzy(state) {
       if (state.yatzy) state.totalSum += 50;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerChance(state) {
       state.chanceFinal = state.tempSum;
       state.totalSum += state.chanceFinal;
       state.dice.forEach((die) => { die.selected = false; });
       state.counter = 3;
+      this.commit('resetDiceImages');
     },
     registerBonus(state) {
       state.bonusAvailable = true;
+    },
+    resetDiceImages(state) {
+        state.dice[0].img = letterY;
+        state.dice[1].img = letterA;
+        state.dice[2].img = letterT;
+        state.dice[3].img = letterZ;
+        state.dice[4].img = letterY;
     },
   },
   actions: {
