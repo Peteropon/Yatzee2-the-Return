@@ -35,9 +35,6 @@ export default {
     justify-content: space-between;
     height: 5vh;
 }
-.flex-cont > * {
-
-}
 button {
     border-radius: 4px;
     margin-left: 10%;
@@ -55,7 +52,7 @@ button:hover {
 }
 button:active {
   box-shadow: 0 5px #6660;
-  transform: translateY(2px);
+  transform: translateY(4px);
 }
 .roll-count {
     padding: 0.3em 1em 0;

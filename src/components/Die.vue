@@ -30,4 +30,8 @@ export default {
 	    filter: hue-rotate(180deg);
         cursor: pointer;
     }
+    .die-img:active {
+        box-shadow: 0 5px #6660;
+        transform: translateY(4px);
+    }
 </style>
