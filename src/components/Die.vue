@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
     .die-img{
-        max-width: 10vw;
+        max-width: 11vw;
     	transition: all .3s ease-in-out;
     }
 

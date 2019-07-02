@@ -18,5 +18,9 @@ export default {
 <style scoped>
     h1 {
         text-align: center;
+        font-size: 5vw;
+    }
+    #app {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 </style>

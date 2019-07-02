@@ -13,11 +13,6 @@ export default {
             required: true,
         }
     },
-    data() {
-        return {
-            //  rollcounter: 0,
-        }
-    },
     computed: {
         rollcounter() {
             return this.counter;
@@ -27,9 +22,6 @@ export default {
 </script>
 
 <style scoped>
-div {
-    background-color: bisque;
-}
 .green {
     background-color: rgb(14, 218, 92);
 }
@@ -40,6 +32,6 @@ div {
     background-color: rgb(199, 148, 9);
 }
 .red {
-    background-color: rgb(221, 20, 13);
+    background-color: rgb(228, 102, 97);
 }
 </style>

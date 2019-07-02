@@ -1,5 +1,5 @@
 <template>
-<div class="roll">
+<div class="flex-cont">
     <button @click="rollDice">Roll dice</button>
     <roll-count class="roll-count" :counter="counter"></roll-count>
 </div>
@@ -30,8 +30,13 @@ export default {
 </script>
 
 <style scoped>
-.roll {
+.flex-cont {
     display: flex;
+    justify-content: space-between;
+    height: 5vh;
+}
+.flex-cont > * {
+
 }
 button {
     border-radius: 4px;
@@ -42,8 +47,8 @@ button:hover {
 }
 .roll-count {
     /* background-color: aquamarine; */
-    margin-left: 15%;
-    padding: 0 1em 0 1em;
-    float: right;
+    padding: 0.3em 1em 0;
+    /* float: right; */
+    margin-right: 5%;
 }
 </style>
