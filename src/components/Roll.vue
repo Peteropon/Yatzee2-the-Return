@@ -12,15 +12,19 @@ export default {
   components: {
       RollCount,
   },
-  data() {
-      return {
-          counter: 3,
+//   data() {
+//       return {
+//           counter: 3,
+//       }
+//   },
+  computed: {
+      counter() {
+          return this.$store.state.counter;
       }
   },
   methods: {
     rollDice() {
       if(this.counter > 0) {
-          this.counter--;
       this.$store.dispatch('rollDice');
       } else {
           console.log('no more rolls');

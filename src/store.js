@@ -71,6 +71,7 @@ export default new Vuex.Store({
     yatzy: false,
     chanceFinal: 0,
     bonusAvailable: false,
+    counter: 3,
   },
   getters: {
     getDie: state => state.dice,
@@ -94,6 +95,7 @@ export default new Vuex.Store({
       this.commit('countNumbers');
       this.commit('pairValidation', sortedDice);
       this.commit('straightValidation', sortedDice);
+      state.counter--;
     },
     pairValidation(state, sortedDice) {
       let tempArray = [];
@@ -203,50 +205,60 @@ export default new Vuex.Store({
         }
       });
       if (state.upperSum >= 63) state.bonusAvailable = true;
+      state.counter = 3;
     },
     registerOnePair(state) {
       state.onePairFinal = state.onePairSum;
       state.totalSum += state.onePairFinal;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerTwoPair(state) {
       state.twoPairFinal = state.twoPairSum;
       state.totalSum += state.twoPairFinal;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerThreeKind(state) {
       state.threeKindFinal = state.threeKindSum;
       state.totalSum += state.threeKindFinal;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerFourKind(state) {
       state.fourKindFinal = state.fourKindSum;
       state.totalSum += state.fourKindFinal;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerFullHouse(state) {
       state.fullHouseFinal = state.fullHouseSum;
       state.totalSum += state.fullHouseFinal;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerSmallStraight(state) {
       if (state.smallStraight) state.totalSum += 15;
       state.smallStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerLargeStraight(state) {
       if (state.largeStraight) state.totalSum += 20;
       state.largeStraightSelected = true;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerYatzy(state) {
       if (state.yatzy) state.totalSum += 50;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerChance(state) {
       state.chanceFinal = state.tempSum;
       state.totalSum += state.chanceFinal;
       state.dice.forEach((die) => { die.selected = false; });
+      state.counter = 3;
     },
     registerBonus(state) {
       state.bonusAvailable = true;
