@@ -271,6 +271,7 @@ export default new Vuex.Store({
     },
     registerBonus(state) {
       state.bonusAvailable = true;
+      this.commit('resetDiceImages');
     },
     resetDiceImages(state) {
       state.dice[0].img = letterY;
@@ -278,11 +279,21 @@ export default new Vuex.Store({
       state.dice[2].img = letterT;
       state.dice[3].img = letterZ;
       state.dice[4].img = letterY;
+    //   this.commit('resetCounters');
     },
+    resetCounters(state) {
+      state.ones = 0;
+      state.twos = 0;
+      state.threes = 0;
+      state.fours = 0;
+      state.fives = 0;
+      state.sixes = 0;
+      state.twoPairSum = 0;
+    }
   },
   actions: {
     rollDice({ commit }) {
-      commit('rollDice');
+      commit('rollDice'); // maybe add async cleanCounters here
     },
     toggleSelectedDie({ commit }, index) {
       commit('toggleSelectedDie', index);
@@ -293,5 +304,8 @@ export default new Vuex.Store({
     registerPoints({ commit }, payload) {
       commit('registerPoints', payload);
     },
+    resetCounters({ commit }) {
+      commit('resetCounters');
+    }
   },
 });

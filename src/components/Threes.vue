@@ -23,7 +23,9 @@ export default {
   methods: {
     registerPoints() {
       this.isSelected = true;
-      this.$store.dispatch('registerPoints', 3);
+      this.$store.dispatch('registerPoints', 3).then(() =>
+            this.$store.commit('clearNumberCounters')
+);
       this.finalSum = this.$store.state.threes * 3;
     },
   },

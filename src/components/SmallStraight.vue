@@ -25,6 +25,7 @@ export default {
         registerPoints() {
             this.isSelected = true;
             this.$store.commit('registerSmallStraight');
+            this.$store.commit('clearNumberCounters');
         }
     }
 }

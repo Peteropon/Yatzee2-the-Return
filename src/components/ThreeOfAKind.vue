@@ -30,7 +30,8 @@ export default {
         registerPoints() {
             this.isSelected = true;
             this.$store.commit('registerThreeKind');
-        }
+            this.$store.commit('clearNumberCounters');
+       }
     }
 }
 </script>

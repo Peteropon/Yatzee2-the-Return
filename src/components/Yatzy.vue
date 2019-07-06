@@ -25,6 +25,7 @@ export default {
         registerPoints() {
             this.isSelected = true;
             this.$store.commit('registerYatzy');
+            this.$store.commit('clearNumberCounters');
         }
     }
 }

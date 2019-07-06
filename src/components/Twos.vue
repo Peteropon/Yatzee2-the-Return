@@ -23,14 +23,12 @@ export default {
   methods: {
     registerPoints() {
       this.isSelected = true;
-      this.$store.dispatch('registerPoints', 2);
+      this.$store.dispatch('registerPoints', 2).then(() =>
+            this.$store.commit('clearNumberCounters')
+);
       this.finalSum = this.$store.state.twos * 2;
     },
   },
-
-  // mounted() {
-  //     this.$store.dispatch('countNumbers', 2)
-  // }
 };
 </script>
 

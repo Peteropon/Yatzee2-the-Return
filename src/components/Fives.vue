@@ -22,7 +22,9 @@ export default {
   methods: {
     registerPoints() {
       this.isSelected = true;
-      this.$store.dispatch('registerPoints', 5);
+      this.$store.dispatch('registerPoints', 5).then(() =>
+            this.$store.commit('clearNumberCounters')
+);
       this.finalSum = this.$store.state.fives * 5;
     },
   },

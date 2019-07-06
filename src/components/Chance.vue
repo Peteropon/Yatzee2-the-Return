@@ -26,6 +26,7 @@ export default {
         registerPoints() {
             this.isSelected = true;
             this.$store.commit('registerChance');
+            this.$store.commit('clearNumberCounters');
         }
     }
 }

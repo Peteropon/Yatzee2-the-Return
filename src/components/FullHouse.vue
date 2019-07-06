@@ -30,6 +30,7 @@ export default {
         registerPoints() {
             this.isSelected = true;
             this.$store.commit('registerFullHouse');
+            this.$store.commit('clearNumberCounters');
         }
     }
 }
