@@ -1,5 +1,6 @@
 <template>
     <div class="game">
+    <h1>Welcome to a good Yatzy game!</h1>
         <dice id="dice"></dice>
         <roll id="roll"></roll>
         <scoreboard></scoreboard>
@@ -51,5 +52,34 @@ export default {
     #linkedin > * {
         padding-top: 10%;
         width: 8vw;
+    }
+    h1 {
+        text-align: center;
+        font-size: 5vw;
+    }
+    html {
+        background-color: rgb(43, 39, 39);
+        width: 100%;
+    }
+    @media (min-width: 50em) {
+        html {
+            background-color: rgb(206, 199, 106);
+            background-image: linear-gradient(rgb(204, 233, 98), rgb(176, 176, 192))
+        }
+        h1 {
+            text-align: center;
+            min-width: 55vw;
+            font-size: 2em;
+        }
+        #github > * {
+        max-width: 5vw;
+    }
+        #linkedin > * {
+            max-width: 5vw;
+        }
+    .game {
+        display: grid;
+    }
+
     }
 </style>

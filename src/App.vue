@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Welcome to a good Yatzy game!</h1>
     <game></game>
   </div>
 </template>
@@ -16,11 +15,14 @@ export default {
 </script>
 
 <style scoped>
-    h1 {
-        text-align: center;
-        font-size: 5vw;
-    }
     #app {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    }
+    @media (min-width: 50em) {
+        #app > *{
+            max-width: 60%;
+            padding-left: 15%;
+        }
     }
 </style>

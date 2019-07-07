@@ -1,3 +1,6 @@
+/* eslint-disable prefer-const */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable default-case */
@@ -72,6 +75,7 @@ export default new Vuex.Store({
     chanceFinal: 0,
     bonusAvailable: false,
     counter: 3,
+    turnsLeft: 15,
   },
   getters: {
     getDie: state => state.dice,
@@ -123,34 +127,27 @@ export default new Vuex.Store({
     },
     straightValidation(state, payload) {
       const stringFromArr = payload.join('');
-      console.log(stringFromArr);
       if (stringFromArr === '12345' && !state.smallStraightSelected) {
-        console.log('small straight');
         state.smallStraight = true;
       } else if (stringFromArr === '23456') {
-        console.log('large straight');
         state.largeStraight = true;
       }
     },
     confirmFullHouse(state, payload) {
       state.fullHouse = true;
       state.fullHouseSum = payload.reduce((num, total) => total + num);
-      console.log('full house');
     },
     confirmTwoPairs(state, payload) {
       state.twoPairSum = (payload[0] * 2) + (payload[1] * 2);
       state.twoPairValidator = true;
-      console.log(`two pairs ${state.twoPairSum}`);
     },
     confirmThreeKind(state, payload) {
       state.threeKind = true;
       state.threeKindSum = payload[1] * 3;
-      console.log('3 of a kind');
     },
     confirmFourKind(state, payload) {
       state.fourKind = true;
       state.fourKindSum = payload[0] * 4;
-      console.log('four of a kind');
     },
     toggleSelectedDie(state, payload) {
       if (state.dice[payload].selected) state.dice[payload].selected = false;
@@ -281,19 +278,10 @@ export default new Vuex.Store({
       state.dice[4].img = letterY;
     //   this.commit('resetCounters');
     },
-    resetCounters(state) {
-      state.ones = 0;
-      state.twos = 0;
-      state.threes = 0;
-      state.fours = 0;
-      state.fives = 0;
-      state.sixes = 0;
-      state.twoPairSum = 0;
-    }
   },
   actions: {
     rollDice({ commit }) {
-      commit('rollDice'); // maybe add async cleanCounters here
+      commit('rollDice');
     },
     toggleSelectedDie({ commit }, index) {
       commit('toggleSelectedDie', index);
@@ -304,8 +292,5 @@ export default new Vuex.Store({
     registerPoints({ commit }, payload) {
       commit('registerPoints', payload);
     },
-    resetCounters({ commit }) {
-      commit('resetCounters');
-    }
   },
 });

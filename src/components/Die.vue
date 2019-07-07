@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
     .die-img{
-        max-width: 11vw;
+        max-width: 10vw;
     	transition: all .3s ease-in-out;
     }
 
@@ -33,5 +33,10 @@ export default {
     .die-img:active {
         box-shadow: 0 5px #6660;
         transform: translateY(6px);
+    }
+    @media (min-width: 50em) {
+        .die-img {
+            max-width: 5vw;
+        }
     }
 </style>
